@@ -47,19 +47,19 @@ start_on_boot() {
 # Required-Stop:
 # Default-Start:     S
 # Default-Stop:
-# Short-Description: Add the tinyRTC
-# Description:       Add the tinyRTC
+# Short-Description: Add tinyRTC
+# Description:       Add tinyRTC
 ### END INIT INFO
 
 . /lib/lsb/init-functions
 
 case "\$1" in
   start)
-    log_success_msg "Probe the i2c-dev"
+    log_success_msg "Probe i2c-dev"
     modprobe i2c-dev
-    log_success_msg "Probe the ds1307 driver"
+    log_success_msg "Probe ds1307 driver"
     modprobe rtc-ds1307
-    log_success_msg "Add the ds1307 device in the sys filesystem"
+    log_success_msg "Add ds1307 device in sys filesystem"
     # https://www.kernel.org/doc/Documentation/i2c/instantiating-devices
     echo ds1307 0x68 > /sys/class/i2c-dev/i2c-$i/device/new_device
     log_success_msg "Synchronise the system clock and hardware RTC"
