@@ -67,6 +67,10 @@ case "\$1" in
     ;;
   stop)
     ;;
+  check)
+    echo -n "HW clock:    "; hwclock -r
+    echo -n "System time: "; date
+    ;;
   restart)
     ;;
   force-reload)
